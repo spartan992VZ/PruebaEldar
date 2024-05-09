@@ -1,3 +1,5 @@
+package com.eldar.prueba.TDC.Operations.validations.modelos;
+
 import lombok.*;
 
 import javax.persistence.Entity;
@@ -11,10 +13,11 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+
 public class TarjetaCredito {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String numero;
+    private String numeroTdc;
     private String marca;
     private String cardholder;
     private LocalDate fechaVencimiento;
