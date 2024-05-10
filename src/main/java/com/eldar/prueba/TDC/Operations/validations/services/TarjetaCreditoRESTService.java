@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(path = "/")
+@RequestMapping(path = "/tarjeta")
 public interface TarjetaCreditoRESTService {
 
 
@@ -18,6 +18,6 @@ public interface TarjetaCreditoRESTService {
     @PostMapping("/actualizarDatos")
     public ResponseEntity<TarjetaResponse> actualizarDatosTarjeta( @RequestBody TarjetaRequest tarjeta);
 
-    @DeleteMapping("/{number}")
+    @DeleteMapping("/elimina")
     public ResponseEntity<?> eliminarTarjeta(@PathVariable String number);
 }
