@@ -1,5 +1,8 @@
 package com.eldar.prueba.TDC.Operations.validations.services;
 
+import com.eldar.prueba.TDC.Operations.validations.dto.reponse.OperacionResponse;
+import com.eldar.prueba.TDC.Operations.validations.dto.request.OperacionRequest;
+import com.eldar.prueba.TDC.Operations.validations.dto.request.TasaRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -7,11 +10,10 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(path = "/")
 public interface OperacionRESTService {
 
-   /* @PostMapping("/validar")
-    public ResponseEntity<Boolean> validarOperacion(@RequestBody Operacion operacion);
-*/
+    @PostMapping("/operacion")
+    public ResponseEntity<OperacionResponse> obtenerTasaOperacion(@RequestBody TasaRequest tasaRequest);
 
-    @GetMapping
-    public ResponseEntity<Double> obtenerTasaOperacion(@RequestParam("marca") String marca, @RequestParam("importe") double importe);
+    @PostMapping("/operacion")
+    public ResponseEntity<OperacionResponse> validarOperacion(@RequestBody OperacionRequest operacionRequest);
 
 }

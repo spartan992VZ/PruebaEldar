@@ -6,6 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TarjetaCreditoDAORepository extends JpaRepository<TarjetaCredito, String> {
-    TarjetaCredito findByNumberTdc(String NumberTdc);
 
 }

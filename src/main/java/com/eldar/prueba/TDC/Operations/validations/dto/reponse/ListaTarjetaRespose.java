@@ -7,15 +7,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class TarjetaResponse extends ModelResponse {
-    private String numeroTdc;
-    private String marca;
-    private String cardholder;
-    private LocalDate fechaVencimiento;
+public class ListaTarjetaRespose extends ModelResponse {
+    List<TarjetaDTO> listaTarjetas;
 }

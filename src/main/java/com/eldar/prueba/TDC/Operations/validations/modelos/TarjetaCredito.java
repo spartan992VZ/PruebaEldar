@@ -2,23 +2,21 @@ package com.eldar.prueba.TDC.Operations.validations.modelos;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
-
+@Table (name = "tarjeta_credito")
 public class TarjetaCredito {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "numero_tdc")
     private String numeroTdc;
+    @Column(name = "marca")
     private String marca;
+    @Column(name = "cardholder")
     private String cardholder;
+    @Column(name ="fecha_vencimiento")
     private LocalDate fechaVencimiento;
 }

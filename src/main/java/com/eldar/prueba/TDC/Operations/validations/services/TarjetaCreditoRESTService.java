@@ -1,5 +1,6 @@
 package com.eldar.prueba.TDC.Operations.validations.services;
 
+import com.eldar.prueba.TDC.Operations.validations.dto.reponse.ListaTarjetaRespose;
 import com.eldar.prueba.TDC.Operations.validations.dto.reponse.TarjetaResponse;
 import com.eldar.prueba.TDC.Operations.validations.dto.request.TarjetaRequest;
 import org.springframework.http.ResponseEntity;
@@ -11,13 +12,15 @@ public interface TarjetaCreditoRESTService {
 
 
     @GetMapping("/{number}")
-    public ResponseEntity<TarjetaResponse> obtenerTarjeta(@PathVariable String number);
+    ResponseEntity<TarjetaResponse> obtenerTarjeta(@PathVariable String number);
+
+    @GetMapping("/tarjetas")
+    ResponseEntity<ListaTarjetaRespose> obtenerTodaTarjeta();
+
     @PostMapping("/registrarNuevaTarjeta")
-    public ResponseEntity<TarjetaResponse> crearTarjeta(@RequestBody TarjetaRequest tarjeta);
+    ResponseEntity<String> crearTarjeta(@RequestBody TarjetaRequest tarjeta);
 
-    @PostMapping("/actualizarDatos")
-    public ResponseEntity<TarjetaResponse> actualizarDatosTarjeta( @RequestBody TarjetaRequest tarjeta);
+    @GetMapping("/validar/{number}")
+    ResponseEntity<String> validarTarjeta(@PathVariable String number);
 
-    @DeleteMapping("/elimina")
-    public ResponseEntity<?> eliminarTarjeta(@PathVariable String number);
 }

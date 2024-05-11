@@ -12,5 +12,5 @@ public class TarjetaRequest {
     private String numeroTdc;
     private String marca;
     private String cardholder;
-    private LocalDate fechaVencimito;
+    private LocalDate fechaVencimiento;
 }
