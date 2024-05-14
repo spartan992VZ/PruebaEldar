@@ -93,5 +93,14 @@ public class TarjetaController {
         return false;
     }
 
+    public boolean compararNumerosTarjetas(String numeroTarjeta1, String numeroTarjeta2) throws  TarjetaNotFoundException{
+        TarjetaCredito tarjeta1 = tarjetaCreditoRepository.findById(numeroTarjeta1)
+                .orElseThrow(() -> new TarjetaNotFoundException(numeroTarjeta1));
+
+        TarjetaCredito tarjeta2 = tarjetaCreditoRepository.findById(numeroTarjeta2)
+                .orElseThrow(() -> new TarjetaNotFoundException(numeroTarjeta2));
+
+        return tarjeta1.equals(tarjeta2);
+    }
 }
 

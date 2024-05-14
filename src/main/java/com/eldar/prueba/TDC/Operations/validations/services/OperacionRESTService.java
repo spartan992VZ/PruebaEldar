@@ -13,7 +13,7 @@ public interface OperacionRESTService {
     @PostMapping("/operacion")
     public ResponseEntity<OperacionResponse> obtenerTasaOperacion(@RequestBody TasaRequest tasaRequest);
 
-    @PostMapping("/operacion")
+    /*@PostMapping("/operacion")
     public ResponseEntity<OperacionResponse> validarOperacion(@RequestBody OperacionRequest operacionRequest);
-
+*/
 }

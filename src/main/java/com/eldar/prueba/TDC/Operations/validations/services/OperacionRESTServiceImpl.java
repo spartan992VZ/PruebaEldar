@@ -27,11 +27,5 @@ public class OperacionRESTServiceImpl implements OperacionRESTService {
         return ResponseEntity.ok(response);
     }
 
-    @Override
-    public ResponseEntity<OperacionResponse> validarOperacion(OperacionRequest operacionRequest) {
-
-        return null;
-    }
-
 
 }

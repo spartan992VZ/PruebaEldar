@@ -1,0 +1,432 @@
+{
+	"info": {
+		"_postman_id": "634b0368-bcc2-4b94-aaf5-16b4a45a0586",
+		"name": "prueba",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "local",
+			"item": [
+				{
+					"name": "Comparacion",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/tarjeta/comparar-tarjetas?numeroTarjeta1=7531&numeroTarjeta2=7531",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tarjeta",
+								"comparar-tarjetas"
+							],
+							"query": [
+								{
+									"key": "numeroTarjeta1",
+									"value": "7531"
+								},
+								{
+									"key": "numeroTarjeta2",
+									"value": "7531"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Validar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/tarjeta/validar/7531",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tarjeta",
+								"validar",
+								"7531"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/tarjeta/eliminarTarjeta?numeroTarjeta=7531",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tarjeta",
+								"eliminarTarjeta"
+							],
+							"query": [
+								{
+									"key": "numeroTarjeta",
+									"value": "7531"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Datos",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numeroTdc\": \"7531\",\r\n    \"marca\": \"NARA\",\r\n    \"cardholder\": \"Jaime Santiago\",\r\n    \"fechaVencimiento\": \"2024-04-10\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/tarjeta/actualizarDatos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tarjeta",
+								"actualizarDatos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Tarjeta",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numeroTdc\": \"7531\",\r\n    \"marca\": \"NARA\",\r\n    \"cardholder\": \"Jaime Santiago\",\r\n    \"fechaVencimiento\": \"2024-04-10\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/tarjeta/registrarNuevaTarjeta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tarjeta",
+								"registrarNuevaTarjeta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Operacion",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"marca\" :\"VISA\",\r\n    \"monto\" : 50.20\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/operaciones/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"operaciones",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Tarjeta",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/tarjeta/7531946268013579",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tarjeta",
+								"7531946268013579"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener tarjetas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/tarjeta/tarjetas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tarjeta",
+								"tarjetas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "online",
+			"item": [
+				{
+					"name": "Buscar Tarjeta",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://54.207.99.202:8080/tarjeta/7531946268013579",
+							"protocol": "http",
+							"host": [
+								"54",
+								"207",
+								"99",
+								"202"
+							],
+							"port": "8080",
+							"path": [
+								"tarjeta",
+								"7531946268013579"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Datos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numeroTdc\": \"7531946268013579\",\r\n    \"marca\": \"NARA\",\r\n    \"cardholder\": \"Jaime Santiago\",\r\n    \"fechaVencimiento\": \"2024-09-10\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://54.207.99.202:8080/tarjeta/actualizarDatos",
+							"protocol": "http",
+							"host": [
+								"54",
+								"207",
+								"99",
+								"202"
+							],
+							"port": "8080",
+							"path": [
+								"tarjeta",
+								"actualizarDatos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Validar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://54.207.99.202:8080/tarjeta/validar/7531946268013579",
+							"protocol": "http",
+							"host": [
+								"54",
+								"207",
+								"99",
+								"202"
+							],
+							"port": "8080",
+							"path": [
+								"tarjeta",
+								"validar",
+								"7531946268013579"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Operacion",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"marca\" :\"VISA\",\r\n    \"monto\" : 50.20\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://54.207.99.202:8080/operaciones/",
+							"protocol": "http",
+							"host": [
+								"54",
+								"207",
+								"99",
+								"202"
+							],
+							"port": "8080",
+							"path": [
+								"operaciones",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Tarjeta",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"numeroTdc\": \"7531\",\r\n    \"marca\": \"NARA\",\r\n    \"cardholder\": \"Jaime Santiago\",\r\n    \"fechaVencimiento\": \"2024-09-10\"\r\n}"
+						},
+						"url": {
+							"raw": "http://54.207.99.202:8080/tarjeta/registrarNuevaTarjeta",
+							"protocol": "http",
+							"host": [
+								"54",
+								"207",
+								"99",
+								"202"
+							],
+							"port": "8080",
+							"path": [
+								"tarjeta",
+								"registrarNuevaTarjeta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener tarjetas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://54.207.99.202:8080/tarjeta/tarjetas",
+							"protocol": "http",
+							"host": [
+								"54",
+								"207",
+								"99",
+								"202"
+							],
+							"port": "8080",
+							"path": [
+								"tarjeta",
+								"tarjetas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Comparacion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://54.207.99.202:8080/tarjeta/comparar-tarjetas?numeroTarjeta1=7531&numeroTarjeta2=7531",
+							"protocol": "http",
+							"host": [
+								"54",
+								"207",
+								"99",
+								"202"
+							],
+							"port": "8080",
+							"path": [
+								"tarjeta",
+								"comparar-tarjetas"
+							],
+							"query": [
+								{
+									"key": "numeroTarjeta1",
+									"value": "7531"
+								},
+								{
+									"key": "numeroTarjeta2",
+									"value": "7531"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

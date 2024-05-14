@@ -29,4 +29,6 @@ public interface TarjetaCreditoRESTService {
     @DeleteMapping("/eliminarTarjeta/{numeroTdc}")
     ResponseEntity<String> eliminarTarjeta(@PathVariable String numeroTdc);
 
+    @GetMapping("/comparar-tarjetas")
+    public ResponseEntity<String> compararTarjetas(@RequestParam("numeroTarjeta1") String numeroTarjeta1,@RequestParam("numeroTarjeta2") String numeroTarjeta2);
 }

@@ -55,6 +55,7 @@ public class TarjetaCreditoRESTServiceImpl implements TarjetaCreditoRESTService{
         }
 
     }
+
     @PostMapping("/registrarNuevaTarjeta")
     public ResponseEntity<String> crearTarjeta(@RequestBody TarjetaRequest tarjeta) {
         TarjetaDTO dto = mapper.toDTO(tarjeta);
@@ -68,7 +69,7 @@ public class TarjetaCreditoRESTServiceImpl implements TarjetaCreditoRESTService{
         }
     }
 
-    @Override
+    @GetMapping("/validar/{number}")
     public ResponseEntity<String> validarTarjeta(String number) {
 
         try {
@@ -83,7 +84,6 @@ public class TarjetaCreditoRESTServiceImpl implements TarjetaCreditoRESTService{
 
     }
 
-    @Override
     @PostMapping("/actualizarDatos")
     public ResponseEntity<String> actualizarDatos(@RequestBody TarjetaRequest tarjeta) {
         try {
@@ -99,10 +99,8 @@ public class TarjetaCreditoRESTServiceImpl implements TarjetaCreditoRESTService{
         }
     }
 
-
-    @Override
-    @DeleteMapping("/eliminarTarjeta/{numero}")
-    public ResponseEntity<String> eliminarTarjeta(@PathVariable String numeroTdc) {
+    @DeleteMapping("/eliminarTarjeta")
+    public ResponseEntity<String> eliminarTarjeta(@RequestParam("numeroTarjeta") String numeroTdc) {
         try {
             tarjetaController.eliminarTarjeta(numeroTdc);
 
@@ -115,6 +113,25 @@ public class TarjetaCreditoRESTServiceImpl implements TarjetaCreditoRESTService{
         }
     }
 
+    @GetMapping("/compararTarjetas")
+    public ResponseEntity<String> compararTarjetas(
+            @RequestParam("numeroTarjeta1") String numeroTarjeta1,
+            @RequestParam("numeroTarjeta2") String numeroTarjeta2) {
+        try {
+            boolean resultado = tarjetaController.compararNumerosTarjetas(numeroTarjeta1, numeroTarjeta2);
 
+            if (resultado) {
+                return ResponseEntity.ok("Los números de tarjeta son iguales.");
+            } else {
+                return ResponseEntity.ok("Los números de tarjeta son diferentes.");
+            }
+        } catch (TarjetaNotFoundException e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+        }
+            catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al eliminar la tarjeta");
+        }
+
+    }
 
 }
