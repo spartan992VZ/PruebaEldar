@@ -1,6 +1,7 @@
 package com.eldar.prueba.TDC.Operations.validations.controller;
 
 import com.eldar.prueba.TDC.Operations.validations.dto.TarjetaDTO;
+import com.eldar.prueba.TDC.Operations.validations.dto.request.TarjetaRequest;
 import com.eldar.prueba.TDC.Operations.validations.exceptions.TarjetaInvalidaException;
 import com.eldar.prueba.TDC.Operations.validations.exceptions.TarjetaNotFoundException;
 import com.eldar.prueba.TDC.Operations.validations.mapper.TarjetaMapper;
@@ -8,6 +9,7 @@ import com.eldar.prueba.TDC.Operations.validations.modelos.TarjetaCredito;
 import com.eldar.prueba.TDC.Operations.validations.repository.TarjetaCreditoDAORepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
 import javax.persistence.PersistenceException;
@@ -62,6 +64,26 @@ public class TarjetaController {
         }
 
     }
+
+    public void actualizarDatosTarjeta(TarjetaDTO tarjetaDTO) throws TarjetaNotFoundException {
+        TarjetaCredito tarjeta = tarjetaCreditoRepository.findById(tarjetaDTO.getNumeroTdc())
+                .orElseThrow(() -> new TarjetaNotFoundException(tarjetaDTO.getNumeroTdc()));
+
+        tarjeta.setCardholder(tarjetaDTO.getCardholder());
+        tarjeta.setFechaVencimiento(tarjetaDTO.getFechaVencimiento());
+        tarjeta.setMarca(tarjetaDTO.getMarca());
+
+        tarjetaCreditoRepository.save(tarjeta);
+    }
+
+    public void eliminarTarjeta(String numero) throws TarjetaNotFoundException {
+        TarjetaCredito tarjeta = tarjetaCreditoRepository.findById(numero)
+                .orElseThrow(() -> new TarjetaNotFoundException(numero));
+
+        // Eliminar la tarjeta
+        tarjetaCreditoRepository.delete(tarjeta);
+    }
+
 
     private boolean esVigente(TarjetaCredito tarjetaOptional) {
         LocalDate fechaActual = LocalDate.now();

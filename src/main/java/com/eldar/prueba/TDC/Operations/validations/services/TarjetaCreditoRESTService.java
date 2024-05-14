@@ -23,4 +23,10 @@ public interface TarjetaCreditoRESTService {
     @GetMapping("/validar/{number}")
     ResponseEntity<String> validarTarjeta(@PathVariable String number);
 
+    @PostMapping("/actualizarTarjeta")
+    ResponseEntity<String> actualizarDatos(@RequestBody TarjetaRequest tarjeta);
+
+    @DeleteMapping("/eliminarTarjeta/{numeroTdc}")
+    ResponseEntity<String> eliminarTarjeta(@PathVariable String numeroTdc);
+
 }

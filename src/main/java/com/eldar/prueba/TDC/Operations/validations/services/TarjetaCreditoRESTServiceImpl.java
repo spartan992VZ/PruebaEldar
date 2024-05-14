@@ -83,5 +83,38 @@ public class TarjetaCreditoRESTServiceImpl implements TarjetaCreditoRESTService{
 
     }
 
+    @Override
+    @PostMapping("/actualizarDatos")
+    public ResponseEntity<String> actualizarDatos(@RequestBody TarjetaRequest tarjeta) {
+        try {
+            TarjetaDTO tarjetaDTO = mapper.toDTO(tarjeta);
+
+            tarjetaController.actualizarDatosTarjeta(tarjetaDTO);
+
+            return ResponseEntity.ok("Datos de la tarjeta actualizados correctamente");
+        } catch (TarjetaNotFoundException e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+        }catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al actualizar los datos de la tarjeta");
+        }
+    }
+
+
+    @Override
+    @DeleteMapping("/eliminarTarjeta/{numero}")
+    public ResponseEntity<String> eliminarTarjeta(@PathVariable String numeroTdc) {
+        try {
+            tarjetaController.eliminarTarjeta(numeroTdc);
+
+            return ResponseEntity.ok("Tarjeta eliminada correctamente");
+        } catch (TarjetaNotFoundException e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+        }
+        catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al eliminar la tarjeta");
+        }
+    }
+
+
 
 }
