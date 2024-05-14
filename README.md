@@ -44,3 +44,6 @@ Este proyecto es una aplicación desarrollada en Java con Spring Boot que ofrece
   	}
 
 Por ultimo, les recuerdo que en la carpeta **Collection** pueden encontrar una colección para POSTMAN para facilitarles el armado de los request y URL's correspondientes.
+
+La aplicación puede ser probada apuntando a la siguiente dirección publica:
+- http://54.207.99.202 
