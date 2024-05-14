@@ -4,6 +4,7 @@ import com.eldar.prueba.TDC.Operations.validations.Utils.TasaInteresAMEX;
 import com.eldar.prueba.TDC.Operations.validations.Utils.TasaInteresNARA;
 import com.eldar.prueba.TDC.Operations.validations.Utils.TasaInteresVISA;
 import com.eldar.prueba.TDC.Operations.validations.dto.OperacionDTO;
+import com.eldar.prueba.TDC.Operations.validations.exceptions.MarcaInvalidaException;
 import com.eldar.prueba.TDC.Operations.validations.exceptions.OperacionInvalidaException;
 import com.eldar.prueba.TDC.Operations.validations.exceptions.TarjetaInvalidaException;
 import com.eldar.prueba.TDC.Operations.validations.modelos.TarjetaCredito;
@@ -41,7 +42,7 @@ public class OperacionesController {
         return true;
     }
 
-    public OperacionDTO tasaOperacion(String marca, Double monto){
+    public OperacionDTO tasaOperacion(String marca, Double monto) throws MarcaInvalidaException {
 
         Double tasa = (monto / obtenerTasaOperacion(marca.toUpperCase()));
 
@@ -53,21 +54,21 @@ public class OperacionesController {
         return dto;
     }
 
-    private double obtenerTasaOperacion(String marca) {
+    private double obtenerTasaOperacion(String marca) throws MarcaInvalidaException {
 
         tasaAmex = new TasaInteresAMEX();
         tasaVisa = new TasaInteresVISA();
         tasaNara = new TasaInteresNARA();
 
         switch ( marca ){
-            case "VAMEX":
+            case "AMEX":
                 return tasaAmex.caculoTasaInteres();
             case "NARA":
                 return tasaNara.caculoTasaInteres();
             case "VISA":
                 return tasaVisa.caculoTasaInteres();
             default:
-                throw new IllegalArgumentException("Marca de tarjeta no reconocida: " + marca);
+                throw new MarcaInvalidaException("Marca de tarjeta no reconocida: " + marca);
         }
     }
 
